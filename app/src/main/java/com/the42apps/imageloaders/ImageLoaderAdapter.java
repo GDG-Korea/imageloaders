@@ -7,6 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.animation.ViewPropertyAnimation;
+import com.the42apps.imageloaders.view.MyBlueTransformations;
+import com.the42apps.imageloaders.view.MyFirstCropTransformations;
 import com.the42apps.imageloaders.view.ViewHolder;
 
 public class ImageLoaderAdapter extends ArrayAdapter<String> {
@@ -28,7 +32,31 @@ public class ImageLoaderAdapter extends ArrayAdapter<String> {
 
         ImageView imageView = ViewHolder.get(convertView, R.id.image);
 
+        ViewPropertyAnimation.Animator animator = new ViewPropertyAnimation.Animator() {
+            @Override
+            public void animate(View view) {
+                ViewPropertyAnimatorUtil.startAwesomeAnimation(view);
+            }
+        };
+
         // TODO step2,3,4
+        String url = getItem(position);
+        Glide.with(getContext())
+                .fromString().load(url)
+                .placeholder(R.drawable.loading)
+                .error(R.drawable.error)
+                .animate(new ViewPropertyAnimation.Animator() {
+                    @Override
+                    public void animate(View view) {
+                        ViewPropertyAnimatorUtil.startAwesomeAnimation(view);
+                    }
+                })
+                .centerCrop()
+                //.transform(new MyBlueTransformations(getContext()))
+                //.transform(new MyFirstCropTransformations(getContext()))
+                .thumbnail(0.1f)
+                .into(imageView);
+
         return convertView;
     }
 }

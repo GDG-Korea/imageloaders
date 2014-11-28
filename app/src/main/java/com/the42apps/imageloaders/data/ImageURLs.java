@@ -6,6 +6,7 @@ package com.the42apps.imageloaders.data;
 public class ImageURLs {
 
     public static final String[] URLS = {
+            "http://invalid",
             "http://photography.nationalgeographic.com/u/TvyamNb-BivtNwcoxtkc5xGBuGkIMh_nj4UJHQKuoXI2w-GcXzrZwtHnbpxZ5eZr31h59BkEeqaM79CMQlK_gCFXlrRyzA/",
             "http://photography.nationalgeographic.com/u/TvyamNb-BivtNwcoxtkc5xGBuGkIMh_nj4UJHQKuoXI2w-ZmDUc_nhbh2pd64iSKvC_kR_p410FamuG8XkhZl5ByyJXqMg/",
             "http://photography.nationalgeographic.com/u/TvyamNb-BivtNwcoxtkc5xGBuGkIMh_nj4UJHQKuoXI2w-WyqRDbUiaJAm34VCbm3CGYydWgW7uk4oyAZb8-4-zKEpMcdg/",
