@@ -41,21 +41,6 @@ public class ImageLoaderAdapter extends ArrayAdapter<String> {
 
         // TODO step2,3,4
         String url = getItem(position);
-        Glide.with(getContext())
-                .fromString().load(url)
-                .placeholder(R.drawable.loading)
-                .error(R.drawable.error)
-                .animate(new ViewPropertyAnimation.Animator() {
-                    @Override
-                    public void animate(View view) {
-                        ViewPropertyAnimatorUtil.startAwesomeAnimation(view);
-                    }
-                })
-                .centerCrop()
-                //.transform(new MyBlueTransformations(getContext()))
-                //.transform(new MyFirstCropTransformations(getContext()))
-                .thumbnail(0.1f)
-                .into(imageView);
 
         return convertView;
     }

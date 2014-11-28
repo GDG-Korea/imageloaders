@@ -78,23 +78,5 @@ public class MainFragment extends ListFragment {
         final String imaeUrl = ImageURLs.URLS[1];
 
         // TODO - step 7
-        Glide.with(this).fromString().asBitmap().load(imaeUrl).into(new SimpleTarget<Bitmap>(800, 600) {
-            @Override
-            public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
-                ByteArrayOutputStream os = new ByteArrayOutputStream();
-                resource.compress(Bitmap.CompressFormat.JPEG, 80, os);
-                byte[] array = os.toByteArray();
-
-                try {
-                    File file = new File(getActivity().getCacheDir(), imaeUrl + ".jpg");
-                    FileOutputStream fos = new FileOutputStream(file);
-                    fos.write(array, 0, array.length);
-                    fos.flush();
-                    fos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
     }
 }
